@@ -83,3 +83,18 @@ const warriorsGames = [{
     }
   }
 ]
+
+
+for (let g in warriorsGames) {
+	const newEl = document.createElement('li');
+	if ((warriorsGames[g].awayTeam.isWinner && warriorsGames[g].awayTeam.team === 'Golden State') || (warriorsGames[g].homeTeam.isWinner && warriorsGames[g].homeTeam.team === 'Golden State')) {
+		newEl.className = 'winner';
+		newEl.innerHTML = `${warriorsGames[g].awayTeam.team} - ${warriorsGames[g].homeTeam.team}`;
+	} else {
+		newEl.className = 'loser';
+		newEl.innerHTML = `${warriorsGames[g].awayTeam.team} - ${warriorsGames[g].homeTeam.team}`;
+	}
+	
+	document.querySelector('#games').appendChild(newEl);
+}
+
